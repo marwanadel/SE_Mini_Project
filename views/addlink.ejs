@@ -1,0 +1,17 @@
+<% include partials/header %>
+ <a href="/users/profile"> <button type="submit" class="btn btn-default">Back To My profile</button></a>
+
+<h2 class="page-header">Add Link to Your Projects</h2>
+
+<form method="post" action="/users/addlink">
+  <div class="form-group">
+    <label>Link</label>
+    <input type="text" class="form-control" name="link" placeholder="https://gist.github.com/aheckmann/2408370" required autofocus>
+  </div>
+  
+   <button type="submit" class="btn btn-default">Done</button>
+
+ 
+</form>
+
+<% include partials/footer %>

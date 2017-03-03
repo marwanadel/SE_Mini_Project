@@ -1,0 +1,98 @@
+<% if(user){%>
+<ul>
+<% if(req.user.projects==0){%>
+ <a href="/"> <button type="submit" class="btn btn-default">My profile</button></a>
+ <%} %>
+ <% if(req.user.projects>0){%>
+ <a href="/users/profile"> <button type="submit" class="btn btn-default">My profile</button></a>
+ <%} %>
+ </ul>
+ <%}%>
+<% include partials/header %>
+  <% if(data.length==0){%>
+<div class="alert alert-danger"> <h3> There is no portofolios yet ! </h3> </div> 
+  <%} else{ %>
+<% data.forEach(function(porto){ %>
+	<body>
+ <div class="col-xs-12 col-sm-8 col-md-10">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="/user_uploads/<%= porto.foto %>" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-md-6">
+                    <ul>
+                    <h4>
+                        <li>
+                        Name:
+                            <%=porto.name%>
+                        </li>
+                        <P><br></P>
+                        <li>    <i class="glyphicon glyphicon-envelope"></i>  Email:  <%=porto.email%>
+
+                             </li>
+                              <P><br></P>
+                         <% if(porto.links[0]!='' && porto.screenshots[0]!=''){%>
+
+                                   <li><i class=""></i> Links :  <%=porto.links[0]%>   </li>
+                                       <P><br></P>
+                          <li><i class=""></i> screenshots :   <img src="/user_uploads/<%= porto.screenshots[0] %>" alt="" class="img-rounded img-responsive" /> </li>
+                            
+                           <P><br></P
+                         <%}%>    
+ 
+                    <% if(porto.links[0]!='' && porto.screenshots[0]==''){%>
+
+                                   <li><i class=""></i> Links :  <%=porto.links[0]%>   </li>
+                                       <P><br></P>
+                                   <% if(porto.links.length>1){%>
+                                     <i class=""></i>  <%=porto.links[1]%>   
+                                       <P><br></P>
+                                   <%} %>    
+                         
+                         <%}%> 
+
+
+  <% if(porto.links[0]=='' && porto.screenshots[0]!=''){%>
+
+                                    <li><i class=""></i> screenshots :   <img src="/user_uploads/<%= porto.screenshots[0] %>" alt="" class="img-rounded img-responsive" /> </li>
+                            
+                           <P><br></P
+                                   <% if(porto.screenshots.length>1){%>
+                                    <i class=""></i>   <img src="/user_uploads/<%= porto.screenshots[1] %>" alt="" class="img-rounded img-responsive" /> 
+                            
+                           <P><br></P>
+                                   <%} %>    
+                         
+                         <%}%> 
+
+
+                           <li><i class=""></i> Description : <p> This is a summary for <%= porto.name %>'s portofolio </p>
+                            
+                           </li>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+ </div>
+ </body>
+            
+<% }); %>
+<%} %>
+
+
+
+           
+<% include partials/footer %>
+
+<ul class="pagination">
+<% for(var i = 0;i < count ; i++){%>
+<% if(i == current){ %>
+        <li class="active"><a href="/users/portofolios/page/<%= i %>"><%= i+1 %></a></li>
+
+<%} else{ %>
+<li><a href="/users/portofolios/page/<%= i %>"><%= i+1 %></a></li>
+<%}}%>
+</ul>
+
+

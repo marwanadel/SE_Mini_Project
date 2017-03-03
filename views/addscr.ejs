@@ -1,0 +1,22 @@
+<% include partials/header %>
+ <a href="/users/profile"> <button type="submit" class="btn btn-default">Back To My profile</button></a>
+<h2 class="page-header">Add ScreenShot to Your Projects</h2>
+
+<form enctype="multipart/form-data" method="POST" action="/users/addscr">
+<div class="col-md-2 col-md-2">
+<img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+</div>
+
+<br>
+
+ <div class="form-group">
+    <label>Select Your ScreenShot</label>
+ <input type="file" name="fileToUpload" >
+  </div>
+
+  <button type="submit" class="btn btn-default">Done</button>
+
+ 
+</form>
+
+<% include partials/footer %>

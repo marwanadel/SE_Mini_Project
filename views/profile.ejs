@@ -1,0 +1,39 @@
+<% include partials/header %>
+<h2 class="page-header">Your Profile</h2>
+
+<body>
+ <div class="col-xs-12 col-sm-8 col-md-10">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="/user_uploads/<%= req.user.foto %>" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-md-6">
+                    <ul>
+                    <h4>
+                        <li>
+                        Name:
+                            <%=req.user.name%>
+                        </li>
+                        <P><br></P>
+                        <li>    <i class="glyphicon glyphicon-envelope"></i>  Email:  <%=req.user.email%>
+
+                             </li>
+                              <P><br></P>
+                         
+                            <li><i class=""></i>Number Of Projects:  <%=req.user.projects%>
+                            
+                           </li>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </body>
+<ul>
+  
+     <a href="/users/addscr"><button type="submit" class="btn btn-default">Add ScreenShot</button></a>
+     <a href="/users/addlink"><button type="submit" class="btn btn-default">Add Link</button></a>
+     <a href="/users/myprojects"> <button type="submit" class="btn btn-default">My projects</button></a>
+      </ul>
+    <% include partials/footer %>
